@@ -1,4 +1,4 @@
-import React  from "react";
+import React, { useState, useEffect }  from "react";
 import "components/Appointment/styles.scss";
 import Header from "components/Appointment/Header";
 import Empty from "components/Appointment/Empty";
@@ -26,13 +26,22 @@ export default function Appointment(props) {
     (props.interview) ? SHOW : EMPTY
   );
 
+  const [edit,setEdit] = useState(false);
+  useEffect(()=>{
+    if(mode === EDIT){
+      setEdit(true);
+    }
+  })
+  
+  
+
   const save = (name,interviewer) => {
     transition(SAVING);
     const interview = {
       student : name,
       interviewer
     };
-    props.bookInterview(props.id,interview)
+    props.bookInterview(props.id,interview,edit)
     .then((response)=>{      
       transition(SHOW);
     })
@@ -54,7 +63,7 @@ export default function Appointment(props) {
   
   
   return (
-    <article className = "appointment">
+    <article className = "appointment" data-testid="appointment">
       <Header time = {props.time}/>   
       {mode === EMPTY && <Empty onAdd = {() => transition(CREATE)}/>}  
       {mode === SHOW && <Show student = {props.interview.student} interviewer = {props.interview.interviewer.name} onEdit = {() => {transition(EDIT)}} onDelete = {() => {transition(CONFIRM)}}/>}

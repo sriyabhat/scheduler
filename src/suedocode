@@ -1,0 +1,11 @@
+axios -> days,appointments,interviewers
+
+get days
+get appointments
+get interviewers
+
+set the state -> days, appointments, interviewers
+
+book an interview
+1. put request ---> update axios data
+2. succesfull - update state

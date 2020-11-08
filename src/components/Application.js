@@ -21,9 +21,7 @@ export default function Application(props) {
               bookInterview = {bookInterview}
               deleteInterview = {deleteInterview} />)
   });
-
-  
-  
+ 
 
   return (
     <main className="layout">
