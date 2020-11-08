@@ -6,7 +6,7 @@ Interview Scheduler App allows you to book an interview, edit an interview and c
 
 !["Screenshot of Initial Interview Page"](https://github.com/sriyabhat/scheduler/blob/master/docs/Initial-page.png)
 !["Screenshot of add-interview Page"](https://github.com/sriyabhat/scheduler/blob/master/docs/add-interview.png)
-!["Screenshot of add-interview Page"](https://github.com/sriyabhat/scheduler/blob/master/docs/after-save)
+!["Screenshot of add-interview Page"](https://github.com/sriyabhat/scheduler/blob/master/docs/after-save.png)
 
 
 ## Setup
