@@ -42,15 +42,15 @@ export default function useApplicationData(){
 
     return axios.put(`/api/appointments/${id}`,appointment)
     .then((response) => {   
-      const selectedDay = getDayOfTheAppointment(state,id);   
+      const selectedDay = getDayOfTheAppointment(state,id);  
+      const days = [...state.days];   
       if(!edit) {
-        selectedDay.spots -=1;
+        days[selectedDay].spots -= 1;
       }
-      
-    const days = [...state.days];  
-    const filterDays = days.filter(day => day.id !== selectedDay.id)
-    const newDays = [selectedDay,...filterDays]
-      setState({...state,appointments,days : newDays});      
+    
+    
+    
+      setState({...state,appointments,days});      
     })  
   }
 
@@ -62,11 +62,10 @@ export default function useApplicationData(){
     return axios.delete(`/api/appointments/${id}`)
     .then((response) => {
       const selectedDay = getDayOfTheAppointment(state,id);
-      selectedDay.spots +=1;
-      const days = [...state.days];  
-      const filterDays = days.filter(day => day.id !== selectedDay.id)
-      const newDays = [selectedDay,...filterDays]
-      setState({...state,appointments,days :newDays });      
+      const days = [...state.days]; 
+      days[selectedDay].spots += 1; 
+      
+      setState({...state,appointments,days});      
     })  
   }
 

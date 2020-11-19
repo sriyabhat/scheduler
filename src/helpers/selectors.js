@@ -44,9 +44,9 @@ export function getInterviewersForDay(state, day) {
 
 export function getDayOfTheAppointment(state,id) {
   let selectedDay = null;
-  state.days.forEach((day) => {
+  state.days.forEach((day,index) => {
     if(day.appointments.find(appointment => appointment === id)) {
-      selectedDay = day;
+      selectedDay = index;
     }
   }); 
 
